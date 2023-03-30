@@ -1,50 +1,99 @@
 {
-    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-    "blocks": [
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "right",
+       "segments": [
+
         {
-            "alignment": "left",
-            "segments": [
-                {
-                    "foreground": "#27ae60",
-                    "style": "plain",
-                    "template": " \u279c",
-                    "type": "text"
-                },
-                {
-                    "type": "path",
-                    "style": "plain",
-                    "foreground": "#8e44ad",
-                    "properties": {
-                        "style": "folder"
-                    },
-                    "template": "  <b>{{ .Path }}</b>  "
-                },
-                {
-                    "background": "#2ecc71",
-                    "foreground": "#1d2022",
-                    "properties": {
-                        "branch_icon": " ",
-                        "fetch_stash_count": true,
-                        "fetch_status": true,
-                        "fetch_upstream_icon": true,
-                        "fetch_worktree_count": true
-                    },
-                    "style": "diamond",
-                    "leading_diamond": "\ue0b6",
-                    "template": " \uf113 {{ .HEAD }} ",
-                    "trailing_diamond": "\ue0b4",
-                    "type": "git"
-                },
-                {
-                    "foreground": "#BF616A",
-                    "style": "plain",
-                    "template": " ",
-                    "type": "exit"
-                }
-            ],
-            "type": "prompt"
+          "foreground": "#5fb157",
+          "properties": {
+            "display_mode": "files",
+            "fetch_package_manager": true,
+            "fetch_version": true,
+            "npm_icon": "<#FE4A49>\ue71e npm</> ",
+            "yarn_icon":"<#44FFD2>\uf487 yarn</> "
+          },
+          "style": "plain",
+          "template": "{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}\ue718 {{ .Full }}",
+          "type": "node"
+        },
+        {
+          "foreground": "#4063D8",
+          "properties": {
+            "display_mode": "files",
+            "fetch_version": true
+          },
+          "style": "plain",
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
+          "type": "crystal"
+        },
+        {
+          "foreground": "#DE3F24",
+          "properties": {
+            "display_mode": "files",
+            "fetch_version": true
+          },
+          "style": "plain",
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
+          "type": "ruby"
+        },
+        {
+          "foreground": "#FED142",
+          "properties": {
+            "display_mode": "context",
+            "fetch_virtual_env": false
+          },
+          "style": "plain",
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
+          "type": "python"
         }
-    ],
-    "final_space": true,
-    "version": 2
+      ],
+      "type": "rprompt"
+    },
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#27ae60",
+          "style": "plain",
+          "template": " \u279c",
+          "type": "text"
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#8e44ad",
+          "properties": {
+            "style": "folder"
+          },
+          "template": "  <b>{{ .Path }}</b>  "
+        },
+        {
+          "background": "#2ecc71",
+          "foreground": "#1d2022",
+          "properties": {
+            "branch_icon": " ",
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true,
+            "fetch_worktree_count": true
+          },
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "template": " \uf113 {{ .HEAD }} ",
+          "trailing_diamond": "\ue0b4",
+          "type": "git"
+        },
+        {
+          "foreground": "#BF616A",
+          "style": "plain",
+          "template": " ",
+          "type": "exit"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 2
 }
